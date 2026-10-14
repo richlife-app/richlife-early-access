@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rich Life: privacy note</title>
+<meta name="description" content="Rich Life runs on your own machine and keeps your money data there. What is stored, where it lives, who can see it, and how to delete it.">
+<meta name="theme-color" content="#14100D">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html" aria-label="Rich Life, back to the top of the page"><i aria-hidden="true"></i><span>Rich&nbsp;Life<b>.</b></span></a>
+    <a class="btn sm" href="index.html#access" data-join>Request early access</a>
+  </div>
+  <div class="band" aria-hidden="true"></div>
+</header>
+
+<main>
+  <div class="wrap doc">
+    <p class="kicker">Privacy note</p>
+    <h1>Your money data stays on your machine.</h1>
+    <p class="lead">Rich Life is a private app for one household. It runs on a computer you own, and your money data lives there with it. Nothing about your accounts goes to us, or to anyone else.</p>
+
+    <h2>What Rich Life stores</h2>
+    <ul>
+      <li>The accounts and cards you connect or import.</li>
+      <li>The transactions from those accounts, and the balances the bank reports.</li>
+      <li>The spending plan you set up: your targets and categories, and the categories you mark as one-time costs.</li>
+      <li>Your notes and edits: renames, splits, rules you teach it, and the card credits you have marked used.</li>
+    </ul>
+    <p>The two of you share one set of this, so you both see the same numbers. There is no hidden copy.</p>
+
+    <h2>Where it lives</h2>
+    <div class="card"><p>On the machine that runs Rich Life, in a folder on its disk. Usually a Mac mini at home.</p></div>
+    <ul>
+      <li>The app is served only to devices on your own private network. There is no Rich Life server in the cloud.</li>
+      <li>If you connect a bank through Plaid, that connection is between you and Plaid. We never see your bank login.</li>
+      <li>Optional parts, like the local AI helper, run on the same machine and never send anything out.</li>
+    </ul>
+
+    <h2>Who can see it</h2>
+    <ul>
+      <li>You, and the person you share the household with.</li>
+      <li>Anyone who can use that machine and reach its disk. Keep it somewhere you trust, and set a login on it.</li>
+      <li>Not us. Not advertisers. Not other households. Rich Life has no analytics, no trackers and no third-party scripts. Every page loads only files from the machine itself.</li>
+    </ul>
+
+    <h2>How to delete it</h2>
+    <ul>
+      <li>Because the data is on your machine, you can remove it yourself at any time. Delete the app's data folder and the household's data is gone.</li>
+      <li>To have us help you delete it, or to ask what is stored, use the same early-access form you used to join, and say what you want removed. We will walk you through it.</li>
+      <li>Deleting the app folder does not close your bank or Plaid connections. Those stay yours to manage at your bank and in Plaid.</li>
+    </ul>
+
+    <h2>Questions</h2>
+    <p>Ask through the early-access form on the <a href="index.html">invite page</a>, and we will answer.</p>
+
+    <p class="back"><a href="index.html">&larr; Back to the invite page</a></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="index.html">Invite page</a>
+      <a href="index.html#access" data-join>Request early access</a>
+    </div>
+    <p>Rich Life's spending plan draws on Ramit Sethi's published method. Rich Life is not affiliated with or endorsed by Ramit Sethi or IWT.</p>
+    <p class="tk">Rich Life runs on the household's own machine. Nothing on this page tracks you. There are no cookies.</p>
+  </div>
+</footer>
+
+<script>
+const EARLY_ACCESS_URL = "https://fantasy-spear-680.notion.site/02cfda1831654efd8e8520b2d70a3c6b";
+document.querySelectorAll("[data-join]").forEach((a) => { if (EARLY_ACCESS_URL) { a.href = EARLY_ACCESS_URL; a.target = "_blank"; a.rel = "noopener"; } });
+</script>
+</body>
+</html>
