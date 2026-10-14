@@ -21,7 +21,7 @@
 <header>
   <div class="wrap bar">
     <a class="brand" href="#top" aria-label="Rich Life, top of page"><i aria-hidden="true"></i><span>Rich&nbsp;Life<b>.</b></span></a>
-    <a class="btn sm" href="#access" data-join>Request early access</a>
+    <a class="btn sm" href="https://fantasy-spear-680.notion.site/02cfda1831654efd8e8520b2d70a3c6b" target="_blank" rel="noopener" data-join>Request early access</a>
   </div>
   <div class="band" aria-hidden="true"></div>
 </header>
@@ -32,14 +32,14 @@
     <h1>Ours to spend <em>this month.</em></h1>
     <p class="lede">Rich Life puts your conscious spending plan into practice. It counts every dollar once, files the routine, and warns you before an account dips. You make the calls.</p>
     <div class="cta">
-      <a class="btn" href="#access" data-join>Request early access</a>
+      <a class="btn" href="https://fantasy-spear-680.notion.site/02cfda1831654efd8e8520b2d70a3c6b" target="_blank" rel="noopener" data-join>Request early access</a>
       <a class="btn ghost" href="#tour">See what it does</a>
     </div>
     <p class="fine">Watch about 45 seconds. Maya and Theo are an invented household.</p>
     <div class="stage">
       <div class="phone"><video id="fv" muted playsinline loop preload="none" poster="film-vertical-poster.webp" aria-label="About 45 seconds of the Rich Life app running a household's month"></video></div>
       <div class="screen"><video id="fl" muted playsinline loop preload="none" poster="film-landscape-poster.webp" aria-label="About 45 seconds of the Rich Life app running a household's month"></video></div>
-      <button class="pp" id="pp" type="button">Pause film</button>
+      <button class="pp" id="pp" type="button" hidden>Pause film</button>
     </div>
   </div>
 
@@ -154,7 +154,7 @@
         <li><div><b>Nothing financial.</b><span>The form asks for names, an email and which banks you use.</span></div></li>
         <li><div><b>We invite in small groups.</b><span>You hear from us when your group is ready.</span></div></li>
       </ol>
-      <a class="btn" href="#access" data-join>Request early access</a>
+      <a class="btn" href="https://fantasy-spear-680.notion.site/02cfda1831654efd8e8520b2d70a3c6b" target="_blank" rel="noopener" data-join>Request early access</a>
     </div>
   </section>
 </main>
@@ -164,7 +164,7 @@
     <div class="links">
       <a href="privacy.html">Privacy note</a>
       <a href="#tour">What it does</a>
-      <a href="#access" data-join>Request early access</a>
+      <a href="https://fantasy-spear-680.notion.site/02cfda1831654efd8e8520b2d70a3c6b" target="_blank" rel="noopener" data-join>Request early access</a>
     </div>
     <p>Maya and Theo, their accounts and every figure on this page are synthetic, computed by the app from invented transactions.</p>
     <p>Rich Life's spending plan draws on Ramit Sethi's published method. Rich Life is not affiliated with or endorsed by Ramit Sethi or IWT.</p>
@@ -209,6 +209,7 @@ if (!reduce) {
   new IntersectionObserver((es) => es.forEach((e) => { stageIn = e.isIntersecting; show(); }), { threshold: 0.35 })
     .observe(document.querySelector(".stage"));
 }
+pp.hidden = false;
 label();
 // Reveal on scroll: the page reads fully with JavaScript off, so nothing
 // starts hidden. The script hides only what is still below the fold, then
