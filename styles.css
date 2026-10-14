@@ -198,6 +198,16 @@ footer .tk { font: 400 13px var(--mono); color: var(--dim); }
 .doc .card p { margin: 0; color: var(--ink); }
 .doc .back { margin-top: 34px; font: 400 13px var(--mono); color: var(--dim); }
 
+/* ── getting started page ───────────────────────────────────────────── */
+.doc .step h2 { display: flex; gap: 14px; align-items: center; }
+.doc .step h2::before { content: attr(data-n); flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--accent-soft); border: 1px solid rgba(224, 122, 80, 0.4); color: var(--terracotta); font: 600 18px var(--mono); display: grid; place-items: center; letter-spacing: 0; }
+.doc h2[id], .doc .step[id] { scroll-margin-top: 84px; }
+.doc .actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 16px; }
+.doc ol { color: var(--muted); padding-left: 22px; margin: 0 0 14px; }
+.doc ol li { margin: 6px 0; }
+.doc .btn { overflow-wrap: anywhere; }
+.doc .optional { font: 400 13px var(--mono); color: var(--dim); }
+
 /* ── reveal on scroll ───────────────────────────────────────────────── */
 .will { opacity: 0; transform: translateY(16px); }
 .will.in { opacity: 1; transform: none; transition: opacity 0.6s, transform 0.6s; }
