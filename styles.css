@@ -189,6 +189,7 @@ footer .tk { font: 400 12px var(--mono); color: var(--dim); }
 .doc { max-width: 46em; margin: 0 auto; padding: 24px 0 8px; }
 .doc h1 { font-size: clamp(38px, 9vw, 60px); text-align: left; margin: 0 0 10px; max-width: none; }
 .doc .lead { color: var(--muted); font-size: 19px; margin: 0 0 8px; }
+.doc .updated { font: 400 12px var(--mono); color: var(--dim); margin: 0 0 14px; }
 .doc h2 { font-size: clamp(22px, 5vw, 28px); margin: 40px 0 10px; }
 .doc p { color: var(--muted); margin: 0 0 14px; }
 .doc ul { color: var(--muted); padding-left: 20px; margin: 0 0 14px; }
