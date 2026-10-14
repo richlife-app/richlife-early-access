@@ -24,7 +24,7 @@
     <p class="kicker">Privacy note</p>
     <h1>Your money data stays on your machine.</h1>
     <p class="updated">Last updated October 14, 2026.</p>
-    <p class="lead">Rich Life is a private app for one household. It runs on a computer you own, and your money data lives there with it. We never see your accounts. Only the connections you turn on, such as Plaid, send data, and only to them.</p>
+    <p class="lead">Rich Life is a private app for one household. It runs on a computer you own, and your money data lives there with it. During early access, households can instead use it on a computer we run; that is covered in its own section below. We never see your accounts. Only the connections you turn on, such as Plaid, send data, and only to them.</p>
 
     <h2>What Rich Life stores</h2>
     <ul>
@@ -53,6 +53,19 @@
 
     <h2>Optional connections</h2>
     <p>Optional connections, such as Notion, are off unless you turn them on, and they send only what you turn on. You can turn them off again at any time. Optional parts, like the local AI helper, run on the same machine and never connect to the internet.</p>
+
+    <h2>Early-access households on our computer</h2>
+    <p>If we set you up during early access, Rich Life runs for you on a Mac mini that Parvis Labs runs at home, not on your own machine. This is what changes.</p>
+    <ul>
+      <li>It is reachable only through Tailscale, a private network we share with you. It is not on the public internet.</li>
+      <li>You sign in with a passkey on your own device. Each household is kept separate, and no household can see another's data.</li>
+      <li>Your statements are read in your browser. Only the rows taken from them are saved on that computer, never the file itself.</li>
+      <li>Bank connections through Plaid are not offered to early-access households yet.</li>
+      <li>Notes you send with Send feedback are kept with your household so we can read them and reply.</li>
+      <li>The disk is encrypted. Nightly copies of the data stay on the same computer and are kept for 14 days. Server logs are kept for 90 days and leave out your names, account numbers and amounts.</li>
+      <li>Whoever runs a computer can reach its disk, and that includes us. We built no screen or command that shows us your transactions, and we do not look at your data unless you ask us to help with something specific.</li>
+      <li>To leave, email <a href="mailto:privacy@parvislabs.com">privacy@parvislabs.com</a>. We delete your household, including its nightly copies, within 30 days and tell you when it is done.</li>
+    </ul>
 
     <h2>The early-access form</h2>
     <p>The form on the invite page asks for what you type in it: names, an email and which banks you use, plus how many accounts and cards you run and whether you manage money with a partner. It asks for nothing financial. What you type is kept in Notion, the workspace we use to run the early-access list, under <a href="https://www.notion.com/notion/privacy">Notion's privacy policy</a>.</p>
