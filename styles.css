@@ -131,9 +131,9 @@ h3 { font-weight: 600; font-size: clamp(24px, 5.5vw, 34px); line-height: 1.12; m
 .hero { padding: 44px 0 60px; text-align: center; }
 .cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 .stage { margin: 44px auto 0; display: flex; flex-direction: column; align-items: center; gap: 14px; }
-.phone { width: min(288px, 74vw); border-radius: 40px; border: 8px solid #2b211b; background: #000; overflow: hidden; box-shadow: 0 40px 100px rgba(240, 135, 92, 0.16), 0 0 0 1px var(--line); aspect-ratio: 390 / 844; }
-.screen { display: none; border-radius: 16px; border: 1px solid var(--line); background: #000; overflow: hidden; box-shadow: 0 40px 120px rgba(240, 135, 92, 0.15); aspect-ratio: 844 / 390; width: min(920px, 100%); }
-video, .phone img { width: 100%; height: 100%; object-fit: cover; }
+.phone { width: min(320px, 82vw); border-radius: 20px; border: 1px solid var(--line); background: #000; overflow: hidden; box-shadow: 0 40px 100px rgba(240, 135, 92, 0.16); aspect-ratio: 9 / 16; }
+.screen { display: none; border-radius: 16px; border: 1px solid var(--line); background: #000; overflow: hidden; box-shadow: 0 40px 120px rgba(240, 135, 92, 0.15); aspect-ratio: 16 / 9; width: min(920px, 100%); }
+video, .phone img { width: 100%; height: 100%; object-fit: contain; }
 .pp { min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--line-strong); background: transparent; color: var(--bone); font: 500 15px var(--sans); cursor: pointer; }
 .pp:hover { border-color: var(--terracotta); }
 
