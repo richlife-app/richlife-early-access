@@ -91,7 +91,7 @@ a { color: var(--terracotta); text-underline-offset: 3px; }
 :focus-visible { outline: 2px solid var(--haldi); outline-offset: 2px; border-radius: 6px; }
 ::selection { background: rgba(224, 122, 80, 0.3); color: var(--bone); }
 
-.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 max(20px, env(safe-area-inset-left)); }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left)); }
 
 /* ── header ─────────────────────────────────────────────────────────── */
 header { position: sticky; top: 0; z-index: 5; background: rgba(20, 16, 13, 0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
@@ -127,7 +127,8 @@ h3 { font-weight: 600; font-size: clamp(24px, 5.5vw, 34px); line-height: 1.12; m
 .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
 
 /* ── hero ───────────────────────────────────────────────────────────── */
-.hero { padding: 44px 0 60px; text-align: center; }
+/* top and bottom only: the side padding stays the .wrap gutter */
+.hero { padding-top: 44px; padding-bottom: 60px; text-align: center; }
 .cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 .stage { margin: 44px auto 0; display: flex; flex-direction: column; align-items: center; gap: 14px; }
 .phone { width: min(320px, 82vw); border-radius: 20px; border: 1px solid var(--line); background: #000; overflow: hidden; box-shadow: 0 40px 100px rgba(240, 135, 92, 0.16); aspect-ratio: 9 / 16; }
@@ -139,12 +140,16 @@ video, .phone img { width: 100%; height: 100%; object-fit: contain; }
 /* ── proof band ─────────────────────────────────────────────────────── */
 .proof { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); padding: 36px 0; }
 .proof ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px 22px; grid-template-columns: 1fr 1fr; }
+/* five tiles on two columns: the last one takes the whole row, no orphan */
+.proof li:nth-child(5) { grid-column: 1 / -1; }
 .proof li { margin: 0; }
 .proof .n { display: block; font: 600 clamp(28px, 7vw, 42px)/1.05 var(--display); font-variation-settings: "SOFT" 50, "WONK" 1; font-variant-numeric: tabular-nums; color: var(--terracotta); }
 .proof .l { display: block; font-size: 13.5px; color: var(--muted); margin-top: 5px; line-height: 1.45; }
 .proof .note { grid-column: 1 / -1; margin: 0; padding-top: 18px; border-top: 1px solid var(--line); color: var(--dim); font: 400 13px var(--mono); }
 
-.proof .sum { margin: 0 0 26px; max-width: 46em; color: var(--ink); font-size: 17px; line-height: 1.55; }
+.proof .lead { margin: 0 0 30px; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
+.proof .leadn { margin: 0; font: 700 clamp(40px, 10.5vw, 76px)/1.02 var(--display); font-variation-settings: "SOFT" 50, "WONK" 1; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; color: var(--terracotta); }
+.proof .leadc { margin: 12px 0 0; max-width: 40em; color: var(--ink); font-size: 17px; line-height: 1.55; }
 
 /* ── problem: three sourced findings ────────────────────────────────── */
 .problem { border-top: 1px solid var(--line); }
@@ -171,15 +176,20 @@ section { padding: 72px 0; }
 .row p { margin: 0 0 12px; color: var(--muted); max-width: 34em; }
 .row ul { margin: 0; padding-left: 20px; color: var(--muted); }
 .row li { margin: 6px 0; }
-.big { font: 600 clamp(42px, 11vw, 68px)/1 var(--display); font-variation-settings: "SOFT" 50, "WONK" 1; font-variant-numeric: tabular-nums; color: var(--terracotta); margin: 0 0 6px; }
-.tagl { font: 400 13px var(--mono); color: var(--dim); display: block; margin-bottom: 16px; }
+/* .row .big and .row .tagl outrank the plain .row p rule above */
+.row .big { font: 600 clamp(42px, 11vw, 68px)/1 var(--display); font-variation-settings: "SOFT" 50, "WONK" 1; font-variant-numeric: tabular-nums; color: var(--terracotta); margin: 0 0 6px; }
+.row .tagl { font: 400 13px/1.5 var(--mono); color: var(--muted); display: block; margin: 0 0 11px; }
 .shot { width: min(258px, 70vw); margin: 0 auto; border-radius: 22px; border: 1px solid var(--line); overflow: hidden; background: #000; box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45); }
 .shot img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; }
+/* a phone-width crop of one card, shown whole and near its real size */
+.shot.crop { width: min(340px, 100%); border-radius: 12px; }
+.shot.crop img { aspect-ratio: auto; }
+.shot.sheet { border-radius: 16px; }
 .mshot { width: 100%; border-radius: 12px; border: 1px solid var(--line); overflow: hidden; background: #000; box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4); }
 .mshot img { width: 100%; height: auto; }
 
 /* ── panels with corner ticks ───────────────────────────────────────── */
-.grid { display: grid; gap: 16px; }
+.grid { display: grid; gap: 16px; align-items: start; }
 .panel { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
 .panel::before, .panel::after { content: ""; position: absolute; width: 8px; height: 8px; pointer-events: none; border-color: var(--terracotta); border-style: solid; opacity: 0.75; }
 .panel::before { top: -1px; left: -1px; border-width: 1.5px 0 0 1.5px; }
@@ -205,7 +215,7 @@ footer .links a:hover { text-decoration-color: var(--terracotta); }
 footer .tk { font: 400 13px var(--mono); color: var(--dim); }
 
 /* ── privacy page ───────────────────────────────────────────────────── */
-.doc { max-width: 46em; margin: 0 auto; padding: 24px 0 8px; }
+.doc { max-width: 46em; margin: 0 auto; padding-top: 24px; padding-bottom: 8px; }
 .doc h1 { font-size: clamp(38px, 9vw, 60px); text-align: left; margin: 0 0 10px; max-width: none; }
 .doc .lead { color: var(--muted); font-size: 19px; margin: 0 0 8px; }
 .doc .updated { font: 400 12px var(--mono); color: var(--dim); margin: 0 0 14px; }
@@ -233,18 +243,29 @@ footer .tk { font: 400 13px var(--mono); color: var(--dim); }
 
 @media (min-width: 900px) {
   body { font-size: 18px; }
-  .hero { padding: 84px 0 96px; }
+  .hero { padding-top: 84px; padding-bottom: 96px; }
   .phone { display: none; }
   .screen { display: block; }
-  .proof ul { grid-template-columns: repeat(5, 1fr); }
-  .row { grid-template-columns: 1fr 300px; gap: 72px; }
-  .row.flip { grid-template-columns: 300px 1fr; }
+  .proof ul { grid-template-columns: repeat(5, 1fr); column-gap: 44px; }
+  .proof li:nth-child(5) { grid-column: auto; }
+  .proof .n { font-size: 36px; }
+  .row { grid-template-columns: 1fr 340px; gap: 72px; }
+  .row.flip { grid-template-columns: 340px 1fr; }
+  .shot { width: 340px; }
   .row.wide { grid-template-columns: 1fr 540px; }
   .row.wide.flip { grid-template-columns: 540px 1fr; }
   .row.flip .shot, .row.flip .mshot { order: -1; }
   .grid.three { grid-template-columns: repeat(3, 1fr); }
   .stats { grid-template-columns: repeat(3, 1fr); }
   .stats .n { font-size: 34px; white-space: nowrap; }
+}
+/* 900 to 1099 px: a narrower picture column and smaller tile figures, so
+   the text column and the five tiles keep room */
+@media (min-width: 900px) and (max-width: 1099px) {
+  .row.wide { grid-template-columns: 1fr 440px; gap: 48px; }
+  .row.wide.flip { grid-template-columns: 440px 1fr; }
+  .proof ul { column-gap: 28px; }
+  .proof .n { font-size: 30px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
