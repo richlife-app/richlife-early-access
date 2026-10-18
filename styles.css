@@ -116,7 +116,6 @@ header .band { height: 12px; background: var(--band); opacity: 0.55; }
 .btn.ghost:hover { border-color: var(--terracotta); color: var(--bone); }
 
 /* ── type ───────────────────────────────────────────────────────────── */
-.kicker { color: var(--terracotta); font: 500 12px var(--mono); letter-spacing: 0.08em; margin: 0 0 16px; }
 h1, h2, h3 { font-family: var(--display); font-variation-settings: "SOFT" 50, "WONK" 1; letter-spacing: -0.01em; color: var(--bone); }
 h1 { font-weight: 700; font-size: clamp(44px, 12vw, 96px); line-height: 0.98; letter-spacing: -0.03em; margin: 0 auto 22px; max-width: 12em; }
 h1 em { font-style: normal; color: var(--terracotta); }
@@ -144,6 +143,26 @@ video, .phone img { width: 100%; height: 100%; object-fit: contain; }
 .proof .n { display: block; font: 600 clamp(28px, 7vw, 42px)/1.05 var(--display); font-variation-settings: "SOFT" 50, "WONK" 1; font-variant-numeric: tabular-nums; color: var(--terracotta); }
 .proof .l { display: block; font-size: 13.5px; color: var(--muted); margin-top: 5px; line-height: 1.45; }
 .proof .note { grid-column: 1 / -1; margin: 0; padding-top: 18px; border-top: 1px solid var(--line); color: var(--dim); font: 400 13px var(--mono); }
+
+.proof .sum { margin: 0 0 26px; max-width: 46em; color: var(--ink); font-size: 17px; line-height: 1.55; }
+
+/* ── problem: three sourced findings ────────────────────────────────── */
+.problem { border-top: 1px solid var(--line); }
+.problem .sub { margin-bottom: 32px; }
+.stats { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.stats li { display: flex; flex-direction: column; }
+.stats .n { display: block; font: 600 clamp(30px, 7.5vw, 42px)/1.05 var(--display); font-variation-settings: "SOFT" 50, "WONK" 1; font-variant-numeric: tabular-nums; color: var(--terracotta); }
+.stats .l { display: block; color: var(--ink); font-size: 16px; line-height: 1.5; margin: 8px 0 6px; }
+.stats .src { margin-top: auto; display: inline-flex; align-items: center; min-height: 44px; font: 400 13px/1.4 var(--mono); color: var(--muted); text-decoration: underline; text-decoration-color: var(--line-strong); }
+.stats .src:hover { color: var(--bone); text-decoration-color: var(--terracotta); }
+
+/* note markers and the notes block */
+sup { line-height: 0; vertical-align: top; }
+a.fn { display: inline-block; min-width: 24px; height: 24px; padding-left: 2px; margin-right: -12px; font: 500 0.75em/16px var(--mono); text-decoration: none; vertical-align: top; }
+.notes { border-top: 1px solid var(--line); padding: 36px 0 8px; }
+.notes ol { margin: 0; padding-left: 22px; max-width: 52em; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.notes li { margin: 0 0 12px; scroll-margin-top: 84px; }
+.notes a { color: var(--terracotta); overflow-wrap: anywhere; }
 
 /* ── sections ───────────────────────────────────────────────────────── */
 section { padding: 72px 0; }
@@ -224,6 +243,8 @@ footer .tk { font: 400 13px var(--mono); color: var(--dim); }
   .row.wide.flip { grid-template-columns: 540px 1fr; }
   .row.flip .shot, .row.flip .mshot { order: -1; }
   .grid.three { grid-template-columns: repeat(3, 1fr); }
+  .stats { grid-template-columns: repeat(3, 1fr); }
+  .stats .n { font-size: 34px; white-space: nowrap; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
