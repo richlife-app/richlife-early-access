@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#14100D">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Rich Life: your money on autopilot, counted right">
-<meta property="og:description" content="Every dollar counted once, money you are leaving behind found, and a plan that runs in the background. Watch it run Maya and Theo's month in about a minute.">
+<meta property="og:description" content="Every dollar counted once, money you are leaving behind found, and a plan that runs in the background. Watch it run four invented households in about two minutes.">
 <meta property="og:url" content="https://richlife.parvislabs.com/">
 <meta property="og:image" content="https://richlife.parvislabs.com/og.png">
 <meta property="og:image:width" content="1200">
@@ -34,11 +34,11 @@
       <a class="btn" href="https://fantasy-spear-680.notion.site/02cfda1831654efd8e8520b2d70a3c6b" target="_blank" rel="noopener" data-join>Request early access</a>
       <a class="btn ghost" href="#tour">See what it does</a>
     </div>
-    <p class="fine">For one person or a couple. Watch about a minute. Maya and Theo are an invented household.</p>
+    <p class="fine">For one person or a couple. Watch about two minutes. All four households are invented.</p>
     <div class="stage">
-      <div class="phone"><video id="fv" muted playsinline loop preload="none" poster="film-vertical-poster.png" aria-label="A film of a little over a minute: how much of a household&rsquo;s money would be counted twice, the Rich Life app matching and counting it once, the money it finds in card points and credits, a quiet warning six days before checking could go negative, and the plan a couple shares"></video></div>
-      <div class="screen"><video id="fl" muted playsinline loop preload="none" poster="film-landscape-poster.png" aria-label="A film of a little over a minute: how much of a household&rsquo;s money would be counted twice, the Rich Life app matching and counting it once, the money it finds in card points and credits, a quiet warning six days before checking could go negative, and the plan a couple shares"></video></div>
-      <button class="pp" id="pp" type="button" hidden>Pause film</button>
+      <div class="phone"><video id="fv" muted playsinline loop preload="none" poster="film-vertical-poster.png" aria-label="A film of about two minutes: four invented households, one spending plan. A couple on track fixes one charge and all 19 like it move, then gets a warning before checking goes negative; a household in debt sees its interest and debt-free date; one living paycheck to paycheck gets a daily amount until payday; one with plenty left over is pointed toward a trip."></video></div>
+      <div class="screen"><video id="fl" muted playsinline loop preload="none" poster="film-landscape-poster.png" aria-label="A film of about two minutes: four invented households, one spending plan. A couple on track fixes one charge and all 19 like it move, then gets a warning before checking goes negative; a household in debt sees its interest and debt-free date; one living paycheck to paycheck gets a daily amount until payday; one with plenty left over is pointed toward a trip."></video></div>
+      <div class="ctl"><button class="pp" id="pp" type="button" hidden>Pause film</button><button class="pp" id="snd" type="button" hidden>Turn sound on</button></div>
     </div>
   </div>
 
@@ -198,6 +198,11 @@ document.querySelectorAll("[data-join]").forEach((a) => { if (EARLY_ACCESS_URL) 
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const wide = matchMedia("(min-width:900px)");
 const pp = document.getElementById("pp");
+// The film plays muted. The sound button unmutes whichever video is showing;
+// if a browser refuses to play with sound, the film keeps playing muted.
+const snd = document.getElementById("snd");
+let soundOn = false;
+function sndLabel() { snd.textContent = soundOn ? "Turn sound off" : "Turn sound on"; }
 // The CSS shows #fl on a wide screen and #fv on a phone. The button and the
 // autoplay follow whichever video is showing, and a resize across 900px
 // hands both over to the other one.
@@ -216,7 +221,8 @@ function show() {
   const v = film(), off = document.getElementById(v.id === "fl" ? "fv" : "fl");
   load(v);
   off.pause();
-  if (!reduce && !userPaused && stageIn) v.play().catch(() => {});
+  v.muted = !soundOn;
+  if (!reduce && !userPaused && stageIn) v.play().catch(() => { v.muted = true; soundOn = false; sndLabel(); v.play().catch(() => {}); });
   label();
 }
 wide.addEventListener("change", show);
@@ -229,8 +235,17 @@ if (!reduce) {
   new IntersectionObserver((es) => es.forEach((e) => { stageIn = e.isIntersecting; show(); }), { threshold: 0.35 })
     .observe(document.querySelector(".stage"));
 }
+snd.onclick = () => {
+  soundOn = !soundOn;
+  const v = film();
+  load(v);
+  v.muted = !soundOn;
+  sndLabel();
+};
 pp.hidden = false;
+snd.hidden = false;
 label();
+sndLabel();
 // Reveal on scroll: the page reads fully with JavaScript off, so nothing
 // starts hidden. The script hides only what is still below the fold, then
 // brings it in.
